@@ -24,7 +24,11 @@
 # ****************************************************************************************
 
 def apply_all_func(int_list, *functions):
-    pass
+    results = {}
+
+    for function_ in functions:
+        results[function_.__name__] = function_(int_list)
+    return  results
 
 def start():
     print(apply_all_func([6, 20, 15, 9], max, min))
