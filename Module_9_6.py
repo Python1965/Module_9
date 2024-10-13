@@ -12,21 +12,15 @@
 # ****************************************************************************************
 
 def all_variants(text):
-
-    n = len(text)
-    for i in range(1, 1 << n):
-        subs = ""
-        for j in range(n):
-            if (i & (1 << j)):
-                subs += text[j]
-        yield subs
+    for i in range(len(text)):
+        for j in range(i + 1, len(text) + 1):
+            yield text[i: j]
 
 
 def start():
-    a = all_variants("abcd")
+    a = all_variants("abc")
     for i in a:
         print(i)
-
 
 if __name__ == '__main__':
     start()
